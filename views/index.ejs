@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini messageboard</title>
+</head>
+<body>
+    <h2><%= title %></h2>
+    <ul>
+        <% messagesData.forEach(messageData => { %>
+            <li><%- include('message', {messageDetails: messageData}); %></li>
+        <% }); %>
+    </ul>
+    <a href='new'>New message</a>
+</body>
+</html>
