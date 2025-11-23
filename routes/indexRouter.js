@@ -34,7 +34,6 @@ indexRouter.get('/message', (req, res) => {
 indexRouter.get('/message/:id', (req, res) => {
     const messageId = Number(req.params.id);
     const messageToDisplay = messages.find(message => message.id == messageId);
-    console.log(messages);
     if (!messageToDisplay) {
         return res.status(404).send("Message not found");
     }
