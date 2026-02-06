@@ -1,7 +1,7 @@
+require("dotenv").config();
 const path = require("node:path");
 const express = require('express');
 const indexRouter = require("./routes/indexRouter");
-require("dotenv").config();
 
 const app = express();
 const port = 3000;
@@ -10,10 +10,10 @@ const port = 3000;
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-//set up routes
-app.use('/', indexRouter);
-
 //set up server
 app.listen(port, () => {
     console.log(`Server listening at ${port}`);
 });
+//set up routes
+app.use('/', indexRouter);
+
