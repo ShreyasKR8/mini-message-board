@@ -1,2 +1,5 @@
 <h4><%= messageDetails.user_name %></h4>
 <a href='/message/<%= messageDetails.id %>'>Show</a>
+<form method="post" action="/delete/<%= messageDetails.id %>">
+    <button type="submit">Delete</button>
+</form>

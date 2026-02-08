@@ -7,21 +7,29 @@ async function getAllMessages() {
     return rows;
 }
 
-async function getMessages(userId) {
+async function getMessages(messageId) {
     const { rows } = await pool.query(
         "SELECT message, sent_date FROM messages WHERE id = $1", 
-        [userId]);
+        [messageId]);
 
     return rows;
 }
 
 async function postNewMessage(userName, message) {
-    await pool.query("INSERT INTO messages (user_name, message, sent_date) VALUES ($1, $2, $3)", [userName, message, new Date()]);
+    await pool.query(
+        "INSERT INTO messages (user_name, message, sent_date) VALUES ($1, $2, $3)", 
+        [userName, message, new Date()]);
+    return;
+}
+
+async function deleteUserMessage(messageId) {
+    await pool.query("DELETE FROM messages WHERE id = $1", [messageId]);
     return;
 }
 
 module.exports = {
-    getUsers: getAllMessages,
+    getAllMessages,
     getMessages,
     postNewMessage,
+    deleteUserMessage,
 };

@@ -17,4 +17,6 @@ indexRouter.get('/message/:id', userController.showMessage);
 
 indexRouter.post('/new', userController.postMessage);
 
+indexRouter.post('/delete/:id', userController.deleteUserMessagePost);
+
 module.exports = indexRouter;
