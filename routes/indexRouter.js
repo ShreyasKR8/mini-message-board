@@ -15,6 +15,6 @@ indexRouter.get('/new', userController.loadMessageForm);
 
 indexRouter.get('/message/:id', userController.showMessage);
 
-indexRouter.post('/new', userController.postMessage)
+indexRouter.post('/new', userController.postMessage);
 
 module.exports = indexRouter;
